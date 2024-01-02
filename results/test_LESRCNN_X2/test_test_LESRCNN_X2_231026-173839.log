@@ -1,0 +1,42 @@
+23-10-26 17:38:39.658 - INFO:   name: test_LESRCNN_X2
+  model: sr
+  distortion: sr
+  scale: 2
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: lesrcnn
+    scale: 2
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: /home/data/disk2/wsq/Datasets/benchmark/Set5/HR
+      dataroot_LQ: /home/data/disk2/wsq/Datasets/benchmark/Set5/LR_bicubic/X2
+      phase: test1
+      scale: 2
+      data_type: img
+    ]
+    test2:[
+      name: class3
+      mode: LQGT_rcan
+      dataroot_GT: /home/data/disk2/wsq/Datasets/benchmark/Set14/HR
+      dataroot_LQ: /home/data/disk2/wsq/Datasets/benchmark/Set14/LR_bicubic/X2
+      phase: test2
+      scale: 2
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: trans_weights/trans_over_b.pdparams
+    root: /home/data/disk2/wsq/code/sr_paddle-main
+    results_root: /home/data/disk2/wsq/code/sr_paddle-main/results/test_LESRCNN_X2
+    log: /home/data/disk2/wsq/code/sr_paddle-main/results/test_LESRCNN_X2
+  ]
+  is_train: False
+
+23-10-26 17:38:39.660 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-10-26 17:38:39.660 - INFO: Number of test images in [set5]: 5
+23-10-26 17:38:39.660 - INFO: Dataset [LQGTDataset_rcan - class3] is created.
+23-10-26 17:38:39.660 - INFO: Number of test images in [class3]: 12

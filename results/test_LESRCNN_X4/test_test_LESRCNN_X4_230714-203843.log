@@ -1,0 +1,144 @@
+23-07-14 20:38:43.206 - INFO:   name: test_LESRCNN_X4
+  model: sr
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: lesrcnn
+    scale: 4
+  ]
+  datasets:[
+    test2:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: /root/autodl-tmp/dataset/Set5/GTmod12
+      dataroot_LQ: /root/autodl-tmp/dataset/Set5/LRbicx4
+      phase: test2
+      scale: 4
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: experiments/lesrcnn_x4/models/300000_G.pdparams
+    root: /root/autodl-tmp/sr_paddle-main
+    results_root: /root/autodl-tmp/sr_paddle-main/results/test_LESRCNN_X4
+    log: /root/autodl-tmp/sr_paddle-main/results/test_LESRCNN_X4
+  ]
+  is_train: False
+
+23-07-14 20:38:43.208 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-07-14 20:38:43.208 - INFO: Number of test images in [set5]: 5
+23-07-14 20:38:45.003 - INFO: Network G structure: Net, with parameters: 774,040
+23-07-14 20:38:45.004 - INFO: Net(
+  (sub_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (add_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv1): Sequential(
+    (0): Conv2D(3, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (conv2): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv3): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv4): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv5): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv6): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv7): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv8): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv9): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv10): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv11): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv12): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv13): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv14): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv15): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv16): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv17_1): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_2): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_3): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_4): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv18): Sequential(
+    (0): Conv2D(64, 3, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (ReLU): ReLU()
+  (upsample): UpsampleBlock(
+    (up): _UpsampleBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): PixelShuffle(upscale_factor=2)
+        (2): Conv2D(64, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (3): PixelShuffle(upscale_factor=2)
+      )
+    )
+  )
+)
+23-07-14 20:38:45.004 - INFO: Loading model for G [experiments/lesrcnn_x4/models/300000_G.pdparams] ...
+23-07-14 20:38:45.014 - INFO: Model [SRModel] is created.
+23-07-14 20:38:45.014 - INFO: 
+Testing [set5]...
+23-07-14 20:38:48.033 - INFO: baby                 - PSNR: 24.113852 dB; SSIM: 0.968317; PSNR_Y: 27.244480 dB; SSIM_Y: 0.967030.
+23-07-14 20:38:48.178 - INFO: bird                 - PSNR: 17.909649 dB; SSIM: 0.844004; PSNR_Y: 29.687160 dB; SSIM_Y: 0.812786.
+23-07-14 20:38:48.248 - INFO: butterfly            - PSNR: 31.901770 dB; SSIM: 0.973824; PSNR_Y: 47.314381 dB; SSIM_Y: 0.986377.
+23-07-14 20:38:48.389 - INFO: head                 - PSNR: 45.997965 dB; SSIM: 0.999366; PSNR_Y: 47.209381 dB; SSIM_Y: 0.998986.
+23-07-14 20:38:48.477 - INFO: woman                - PSNR: 25.069267 dB; SSIM: 0.950043; PSNR_Y: 32.367739 dB; SSIM_Y: 0.948008.
+23-07-14 20:38:48.509 - INFO: ----Average PSNR/SSIM results for set5----
+	PSNR: 28.998501 dB
+
+23-07-14 20:38:48.509 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 36.764628 dB; SSIM_Y: 0.942637
+

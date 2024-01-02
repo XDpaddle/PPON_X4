@@ -1,0 +1,263 @@
+23-07-14 20:44:04.720 - INFO:   name: test_LESRCNN_X4
+  model: sr
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: lesrcnn
+    scale: 4
+  ]
+  datasets:[
+    test1:[
+      name: urban100
+      mode: LQGT_rcan
+      dataroot_GT: /root/autodl-tmp/dataset/urban100/GT
+      dataroot_LQ: /root/autodl-tmp/dataset/urban100/x4
+      phase: test1
+      scale: 4
+      data_type: img
+    ]
+    test2:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: /root/autodl-tmp/dataset/Set5/GTmod12
+      dataroot_LQ: /root/autodl-tmp/dataset/Set5/LRbicx4
+      phase: test2
+      scale: 4
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: experiments/lesrcnn_x4_archived_230713-164909/models/1200000_G.pdparams
+    root: /root/autodl-tmp/sr_paddle-main
+    results_root: /root/autodl-tmp/sr_paddle-main/results/test_LESRCNN_X4
+    log: /root/autodl-tmp/sr_paddle-main/results/test_LESRCNN_X4
+  ]
+  is_train: False
+
+23-07-14 20:44:04.722 - INFO: Dataset [LQGTDataset_rcan - urban100] is created.
+23-07-14 20:44:04.722 - INFO: Number of test images in [urban100]: 100
+23-07-14 20:44:04.722 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-07-14 20:44:04.723 - INFO: Number of test images in [set5]: 5
+23-07-14 20:44:06.425 - INFO: Network G structure: Net, with parameters: 774,040
+23-07-14 20:44:06.426 - INFO: Net(
+  (sub_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (add_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv1): Sequential(
+    (0): Conv2D(3, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (conv2): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv3): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv4): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv5): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv6): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv7): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv8): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv9): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv10): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv11): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv12): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv13): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv14): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv15): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv16): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv17_1): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_2): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_3): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_4): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv18): Sequential(
+    (0): Conv2D(64, 3, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (ReLU): ReLU()
+  (upsample): UpsampleBlock(
+    (up): _UpsampleBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): PixelShuffle(upscale_factor=2)
+        (2): Conv2D(64, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (3): PixelShuffle(upscale_factor=2)
+      )
+    )
+  )
+)
+23-07-14 20:44:06.426 - INFO: Loading model for G [experiments/lesrcnn_x4_archived_230713-164909/models/1200000_G.pdparams] ...
+23-07-14 20:44:06.433 - INFO: Model [SRModel] is created.
+23-07-14 20:44:06.433 - INFO: 
+Testing [urban100]...
+23-07-14 20:44:09.633 - INFO: img_001_SRF_4_HR     - PSNR: 18.268192 dB; SSIM: 0.802235; PSNR_Y: 21.307809 dB; SSIM_Y: 0.807452.
+23-07-14 20:44:11.094 - INFO: img_002_SRF_4_HR     - PSNR: 24.838708 dB; SSIM: 0.950647; PSNR_Y: 27.347155 dB; SSIM_Y: 0.944770.
+23-07-14 20:44:12.224 - INFO: img_003_SRF_4_HR     - PSNR: 19.345415 dB; SSIM: 0.810914; PSNR_Y: 27.103996 dB; SSIM_Y: 0.809884.
+23-07-14 20:44:13.334 - INFO: img_004_SRF_4_HR     - PSNR: 12.334023 dB; SSIM: 0.552769; PSNR_Y: 14.932871 dB; SSIM_Y: 0.538017.
+23-07-14 20:44:14.820 - INFO: img_005_SRF_4_HR     - PSNR: 15.399757 dB; SSIM: 0.839381; PSNR_Y: 18.823624 dB; SSIM_Y: 0.769140.
+23-07-14 20:44:16.830 - INFO: img_006_SRF_4_HR     - PSNR: 18.765169 dB; SSIM: 0.831417; PSNR_Y: 22.317069 dB; SSIM_Y: 0.834596.
+23-07-14 20:44:17.953 - INFO: img_007_SRF_4_HR     - PSNR: 34.552792 dB; SSIM: 0.988394; PSNR_Y: 41.042811 dB; SSIM_Y: 0.990390.
+23-07-14 20:44:18.963 - INFO: img_008_SRF_4_HR     - PSNR: 26.069608 dB; SSIM: 0.953276; PSNR_Y: 30.926436 dB; SSIM_Y: 0.942030.
+23-07-14 20:44:20.344 - INFO: img_009_SRF_4_HR     - PSNR: 27.668630 dB; SSIM: 0.988999; PSNR_Y: 30.272074 dB; SSIM_Y: 0.982475.
+23-07-14 20:44:21.758 - INFO: img_010_SRF_4_HR     - PSNR: 30.328875 dB; SSIM: 0.971513; PSNR_Y: 34.859199 dB; SSIM_Y: 0.973391.
+23-07-14 20:44:22.746 - INFO: img_011_SRF_4_HR     - PSNR: 10.268904 dB; SSIM: 0.400296; PSNR_Y: 11.787784 dB; SSIM_Y: 0.415617.
+23-07-14 20:44:24.093 - INFO: img_012_SRF_4_HR     - PSNR: 21.068736 dB; SSIM: 0.851460; PSNR_Y: 25.211167 dB; SSIM_Y: 0.830265.
+23-07-14 20:44:25.418 - INFO: img_013_SRF_4_HR     - PSNR: 20.475652 dB; SSIM: 0.853981; PSNR_Y: 32.048710 dB; SSIM_Y: 0.862078.
+23-07-14 20:44:27.365 - INFO: img_014_SRF_4_HR     - PSNR: 29.961976 dB; SSIM: 0.962258; PSNR_Y: 34.623498 dB; SSIM_Y: 0.962472.
+23-07-14 20:44:28.691 - INFO: img_015_SRF_4_HR     - PSNR: 17.302110 dB; SSIM: 0.794434; PSNR_Y: 26.603143 dB; SSIM_Y: 0.754037.
+23-07-14 20:44:30.622 - INFO: img_016_SRF_4_HR     - PSNR: 26.193577 dB; SSIM: 0.978206; PSNR_Y: 28.378522 dB; SSIM_Y: 0.984659.
+23-07-14 20:44:31.810 - INFO: img_017_SRF_4_HR     - PSNR: 29.391686 dB; SSIM: 0.972366; PSNR_Y: 39.062590 dB; SSIM_Y: 0.980103.
+23-07-14 20:44:33.189 - INFO: img_018_SRF_4_HR     - PSNR: 15.943016 dB; SSIM: 0.790864; PSNR_Y: 21.434471 dB; SSIM_Y: 0.810553.
+23-07-14 20:44:34.340 - INFO: img_019_SRF_4_HR     - PSNR: 12.243750 dB; SSIM: 0.525377; PSNR_Y: 16.310797 dB; SSIM_Y: 0.547258.
+23-07-14 20:44:36.566 - INFO: img_020_SRF_4_HR     - PSNR: 18.276484 dB; SSIM: 0.797590; PSNR_Y: 21.495113 dB; SSIM_Y: 0.775352.
+23-07-14 20:44:38.167 - INFO: img_021_SRF_4_HR     - PSNR: 22.536899 dB; SSIM: 0.967093; PSNR_Y: 25.598219 dB; SSIM_Y: 0.955657.
+23-07-14 20:44:39.273 - INFO: img_022_SRF_4_HR     - PSNR: 25.489563 dB; SSIM: 0.921453; PSNR_Y: 35.442830 dB; SSIM_Y: 0.939312.
+23-07-14 20:44:41.046 - INFO: img_023_SRF_4_HR     - PSNR: 16.170024 dB; SSIM: 0.806347; PSNR_Y: 20.707282 dB; SSIM_Y: 0.769982.
+23-07-14 20:44:42.151 - INFO: img_024_SRF_4_HR     - PSNR: 20.166197 dB; SSIM: 0.898073; PSNR_Y: 23.921204 dB; SSIM_Y: 0.903115.
+23-07-14 20:44:43.321 - INFO: img_025_SRF_4_HR     - PSNR: 35.511542 dB; SSIM: 0.991237; PSNR_Y: 42.146801 dB; SSIM_Y: 0.990702.
+23-07-14 20:44:44.661 - INFO: img_026_SRF_4_HR     - PSNR: 32.795712 dB; SSIM: 0.983639; PSNR_Y: 37.526698 dB; SSIM_Y: 0.980035.
+23-07-14 20:44:46.075 - INFO: img_027_SRF_4_HR     - PSNR: 27.890895 dB; SSIM: 0.957963; PSNR_Y: 32.602494 dB; SSIM_Y: 0.963703.
+23-07-14 20:44:47.206 - INFO: img_028_SRF_4_HR     - PSNR: 28.741403 dB; SSIM: 0.971398; PSNR_Y: 30.135690 dB; SSIM_Y: 0.972652.
+23-07-14 20:44:48.323 - INFO: img_029_SRF_4_HR     - PSNR: 15.461912 dB; SSIM: 0.812631; PSNR_Y: 19.496060 dB; SSIM_Y: 0.818640.
+23-07-14 20:44:49.417 - INFO: img_030_SRF_4_HR     - PSNR: 15.400358 dB; SSIM: 0.799191; PSNR_Y: 19.942399 dB; SSIM_Y: 0.762000.
+23-07-14 20:44:50.508 - INFO: img_031_SRF_4_HR     - PSNR: 14.533090 dB; SSIM: 0.797131; PSNR_Y: 16.918029 dB; SSIM_Y: 0.789281.
+23-07-14 20:44:51.602 - INFO: img_032_SRF_4_HR     - PSNR: 27.815667 dB; SSIM: 0.983530; PSNR_Y: 31.668323 dB; SSIM_Y: 0.982238.
+23-07-14 20:44:52.693 - INFO: img_033_SRF_4_HR     - PSNR: 28.160691 dB; SSIM: 0.955905; PSNR_Y: 30.789148 dB; SSIM_Y: 0.949804.
+23-07-14 20:44:53.789 - INFO: img_034_SRF_4_HR     - PSNR: 12.906356 dB; SSIM: 0.621908; PSNR_Y: 17.088784 dB; SSIM_Y: 0.585342.
+23-07-14 20:44:54.912 - INFO: img_035_SRF_4_HR     - PSNR: 27.587527 dB; SSIM: 0.971664; PSNR_Y: 31.243289 dB; SSIM_Y: 0.965490.
+23-07-14 20:44:56.021 - INFO: img_036_SRF_4_HR     - PSNR: 41.841793 dB; SSIM: 0.997898; PSNR_Y: 43.164173 dB; SSIM_Y: 0.998016.
+23-07-14 20:44:57.219 - INFO: img_037_SRF_4_HR     - PSNR: 25.492206 dB; SSIM: 0.948465; PSNR_Y: 32.480626 dB; SSIM_Y: 0.954555.
+23-07-14 20:44:58.595 - INFO: img_038_SRF_4_HR     - PSNR: 27.075882 dB; SSIM: 0.932999; PSNR_Y: 33.520406 dB; SSIM_Y: 0.939272.
+23-07-14 20:44:59.959 - INFO: img_039_SRF_4_HR     - PSNR: 22.199996 dB; SSIM: 0.899331; PSNR_Y: 25.536557 dB; SSIM_Y: 0.881469.
+23-07-14 20:45:00.948 - INFO: img_040_SRF_4_HR     - PSNR: 24.123342 dB; SSIM: 0.866832; PSNR_Y: 25.698571 dB; SSIM_Y: 0.826477.
+23-07-14 20:45:02.078 - INFO: img_041_SRF_4_HR     - PSNR: 16.268014 dB; SSIM: 0.688326; PSNR_Y: 21.099402 dB; SSIM_Y: 0.665469.
+23-07-14 20:45:03.263 - INFO: img_042_SRF_4_HR     - PSNR: 40.859012 dB; SSIM: 0.996867; PSNR_Y: 42.243346 dB; SSIM_Y: 0.997034.
+23-07-14 20:45:04.379 - INFO: img_043_SRF_4_HR     - PSNR: 17.111607 dB; SSIM: 0.748722; PSNR_Y: 21.636759 dB; SSIM_Y: 0.690449.
+23-07-14 20:45:05.483 - INFO: img_044_SRF_4_HR     - PSNR: 18.469560 dB; SSIM: 0.951718; PSNR_Y: 33.882172 dB; SSIM_Y: 0.901855.
+23-07-14 20:45:06.837 - INFO: img_045_SRF_4_HR     - PSNR: 18.815440 dB; SSIM: 0.876812; PSNR_Y: 20.294805 dB; SSIM_Y: 0.881341.
+23-07-14 20:45:07.930 - INFO: img_046_SRF_4_HR     - PSNR: 23.882733 dB; SSIM: 0.932458; PSNR_Y: 27.469738 dB; SSIM_Y: 0.922109.
+23-07-14 20:45:08.941 - INFO: img_047_SRF_4_HR     - PSNR: 17.922767 dB; SSIM: 0.746469; PSNR_Y: 21.330200 dB; SSIM_Y: 0.755316.
+23-07-14 20:45:10.049 - INFO: img_048_SRF_4_HR     - PSNR: 16.345798 dB; SSIM: 0.746394; PSNR_Y: 23.195926 dB; SSIM_Y: 0.697750.
+23-07-14 20:45:11.156 - INFO: img_049_SRF_4_HR     - PSNR: 14.182913 dB; SSIM: 0.673374; PSNR_Y: 19.144780 dB; SSIM_Y: 0.668104.
+23-07-14 20:45:12.237 - INFO: img_050_SRF_4_HR     - PSNR: 27.266036 dB; SSIM: 0.972207; PSNR_Y: 34.307185 dB; SSIM_Y: 0.949136.
+23-07-14 20:45:13.300 - INFO: img_051_SRF_4_HR     - PSNR: 43.246125 dB; SSIM: 0.997828; PSNR_Y: 53.940487 dB; SSIM_Y: 0.998683.
+23-07-14 20:45:14.438 - INFO: img_052_SRF_4_HR     - PSNR: 27.009204 dB; SSIM: 0.962073; PSNR_Y: 31.246707 dB; SSIM_Y: 0.952655.
+23-07-14 20:45:15.513 - INFO: img_053_SRF_4_HR     - PSNR: 23.336928 dB; SSIM: 0.902312; PSNR_Y: 26.368872 dB; SSIM_Y: 0.891869.
+23-07-14 20:45:16.602 - INFO: img_054_SRF_4_HR     - PSNR: 26.607439 dB; SSIM: 0.945552; PSNR_Y: 33.095604 dB; SSIM_Y: 0.951586.
+23-07-14 20:45:17.954 - INFO: img_055_SRF_4_HR     - PSNR: 31.088424 dB; SSIM: 0.987065; PSNR_Y: 40.269100 dB; SSIM_Y: 0.986305.
+23-07-14 20:45:19.330 - INFO: img_056_SRF_4_HR     - PSNR: 28.351732 dB; SSIM: 0.983067; PSNR_Y: 32.798436 dB; SSIM_Y: 0.976969.
+23-07-14 20:45:20.545 - INFO: img_057_SRF_4_HR     - PSNR: 23.052190 dB; SSIM: 0.931078; PSNR_Y: 25.862866 dB; SSIM_Y: 0.911633.
+23-07-14 20:45:21.666 - INFO: img_058_SRF_4_HR     - PSNR: 17.351337 dB; SSIM: 0.835629; PSNR_Y: 21.077510 dB; SSIM_Y: 0.841485.
+23-07-14 20:45:22.777 - INFO: img_059_SRF_4_HR     - PSNR: 31.153274 dB; SSIM: 0.969897; PSNR_Y: 33.743950 dB; SSIM_Y: 0.960829.
+23-07-14 20:45:23.902 - INFO: img_060_SRF_4_HR     - PSNR: 25.442339 dB; SSIM: 0.956362; PSNR_Y: 29.114324 dB; SSIM_Y: 0.955970.
+23-07-14 20:45:24.984 - INFO: img_061_SRF_4_HR     - PSNR: 20.527372 dB; SSIM: 0.911222; PSNR_Y: 23.403742 dB; SSIM_Y: 0.910563.
+23-07-14 20:45:26.102 - INFO: img_062_SRF_4_HR     - PSNR: 11.891436 dB; SSIM: 0.587803; PSNR_Y: 14.417628 dB; SSIM_Y: 0.550298.
+23-07-14 20:45:27.741 - INFO: img_063_SRF_4_HR     - PSNR: 17.416339 dB; SSIM: 0.790461; PSNR_Y: 21.631881 dB; SSIM_Y: 0.701233.
+23-07-14 20:45:28.871 - INFO: img_064_SRF_4_HR     - PSNR: 27.489701 dB; SSIM: 0.979338; PSNR_Y: 30.287168 dB; SSIM_Y: 0.978006.
+23-07-14 20:45:29.963 - INFO: img_065_SRF_4_HR     - PSNR: 32.385654 dB; SSIM: 0.982883; PSNR_Y: 47.470447 dB; SSIM_Y: 0.989515.
+23-07-14 20:45:31.434 - INFO: img_066_SRF_4_HR     - PSNR: 25.174540 dB; SSIM: 0.917327; PSNR_Y: 28.457037 dB; SSIM_Y: 0.920054.
+23-07-14 20:45:32.538 - INFO: img_067_SRF_4_HR     - PSNR: 10.098300 dB; SSIM: 0.457321; PSNR_Y: 13.897295 dB; SSIM_Y: 0.436179.
+23-07-14 20:45:34.304 - INFO: img_068_SRF_4_HR     - PSNR: 19.804213 dB; SSIM: 0.923597; PSNR_Y: 25.692250 dB; SSIM_Y: 0.858580.
+23-07-14 20:45:35.885 - INFO: img_069_SRF_4_HR     - PSNR: 20.217396 dB; SSIM: 0.900996; PSNR_Y: 25.990440 dB; SSIM_Y: 0.880757.
+23-07-14 20:45:37.214 - INFO: img_070_SRF_4_HR     - PSNR: 21.301922 dB; SSIM: 0.928889; PSNR_Y: 27.915656 dB; SSIM_Y: 0.895609.
+23-07-14 20:45:38.572 - INFO: img_071_SRF_4_HR     - PSNR: 29.144012 dB; SSIM: 0.973273; PSNR_Y: 30.717838 dB; SSIM_Y: 0.972128.
+23-07-14 20:45:39.679 - INFO: img_072_SRF_4_HR     - PSNR: 17.887077 dB; SSIM: 0.637149; PSNR_Y: 19.279676 dB; SSIM_Y: 0.649856.
+23-07-14 20:45:41.053 - INFO: img_073_SRF_4_HR     - PSNR: 18.233151 dB; SSIM: 0.759166; PSNR_Y: 21.239844 dB; SSIM_Y: 0.729662.
+23-07-14 20:45:42.214 - INFO: img_074_SRF_4_HR     - PSNR: 25.893349 dB; SSIM: 0.925537; PSNR_Y: 30.437039 dB; SSIM_Y: 0.900185.
+23-07-14 20:45:43.368 - INFO: img_075_SRF_4_HR     - PSNR: 24.251274 dB; SSIM: 0.959222; PSNR_Y: 30.661797 dB; SSIM_Y: 0.940695.
+23-07-14 20:45:44.488 - INFO: img_076_SRF_4_HR     - PSNR: 23.166938 dB; SSIM: 0.964465; PSNR_Y: 28.788264 dB; SSIM_Y: 0.944507.
+23-07-14 20:45:45.610 - INFO: img_077_SRF_4_HR     - PSNR: 18.885405 dB; SSIM: 0.856011; PSNR_Y: 25.810519 dB; SSIM_Y: 0.854673.
+23-07-14 20:45:46.794 - INFO: img_078_SRF_4_HR     - PSNR: 13.590219 dB; SSIM: 0.703248; PSNR_Y: 17.793962 dB; SSIM_Y: 0.613890.
+23-07-14 20:45:48.131 - INFO: img_079_SRF_4_HR     - PSNR: 41.293001 dB; SSIM: 0.995940; PSNR_Y: 51.357751 dB; SSIM_Y: 0.997656.
+23-07-14 20:45:49.479 - INFO: img_080_SRF_4_HR     - PSNR: 36.445013 dB; SSIM: 0.996823; PSNR_Y: 51.857625 dB; SSIM_Y: 0.997238.
+23-07-14 20:45:51.873 - INFO: img_081_SRF_4_HR     - PSNR: 9.994007 dB; SSIM: 0.584120; PSNR_Y: 14.027549 dB; SSIM_Y: 0.421175.
+23-07-14 20:45:53.695 - INFO: img_082_SRF_4_HR     - PSNR: 20.417754 dB; SSIM: 0.886530; PSNR_Y: 24.678192 dB; SSIM_Y: 0.869450.
+23-07-14 20:45:55.445 - INFO: img_083_SRF_4_HR     - PSNR: 19.076827 dB; SSIM: 0.844268; PSNR_Y: 21.004242 dB; SSIM_Y: 0.846808.
+23-07-14 20:45:57.205 - INFO: img_084_SRF_4_HR     - PSNR: 25.915739 dB; SSIM: 0.948777; PSNR_Y: 34.134925 dB; SSIM_Y: 0.964066.
+23-07-14 20:45:58.465 - INFO: img_085_SRF_4_HR     - PSNR: 15.677716 dB; SSIM: 0.894210; PSNR_Y: 28.051213 dB; SSIM_Y: 0.817861.
+23-07-14 20:46:00.092 - INFO: img_086_SRF_4_HR     - PSNR: 24.786087 dB; SSIM: 0.963858; PSNR_Y: 30.353485 dB; SSIM_Y: 0.953376.
+23-07-14 20:46:01.814 - INFO: img_087_SRF_4_HR     - PSNR: 20.460524 dB; SSIM: 0.873864; PSNR_Y: 25.168534 dB; SSIM_Y: 0.880836.
+23-07-14 20:46:02.920 - INFO: img_088_SRF_4_HR     - PSNR: 21.131516 dB; SSIM: 0.849190; PSNR_Y: 26.622083 dB; SSIM_Y: 0.813515.
+23-07-14 20:46:04.213 - INFO: img_089_SRF_4_HR     - PSNR: 34.276387 dB; SSIM: 0.987155; PSNR_Y: 43.139949 dB; SSIM_Y: 0.990673.
+23-07-14 20:46:05.334 - INFO: img_090_SRF_4_HR     - PSNR: 33.297956 dB; SSIM: 0.990039; PSNR_Y: 37.165919 dB; SSIM_Y: 0.987457.
+23-07-14 20:46:06.453 - INFO: img_091_SRF_4_HR     - PSNR: 27.579408 dB; SSIM: 0.950203; PSNR_Y: 34.065126 dB; SSIM_Y: 0.959143.
+23-07-14 20:46:07.563 - INFO: img_092_SRF_4_HR     - PSNR: 17.246703 dB; SSIM: 0.665876; PSNR_Y: 19.001592 dB; SSIM_Y: 0.678385.
+23-07-14 20:46:08.901 - INFO: img_093_SRF_4_HR     - PSNR: 19.645381 dB; SSIM: 0.943774; PSNR_Y: 23.123748 dB; SSIM_Y: 0.936911.
+23-07-14 20:46:10.213 - INFO: img_094_SRF_4_HR     - PSNR: 22.486422 dB; SSIM: 0.932646; PSNR_Y: 29.550843 dB; SSIM_Y: 0.931209.
+23-07-14 20:46:11.563 - INFO: img_095_SRF_4_HR     - PSNR: 17.155823 dB; SSIM: 0.701249; PSNR_Y: 18.503336 dB; SSIM_Y: 0.712622.
+23-07-14 20:46:12.834 - INFO: img_096_SRF_4_HR     - PSNR: 41.264925 dB; SSIM: 0.996017; PSNR_Y: 45.028137 dB; SSIM_Y: 0.994650.
+23-07-14 20:46:13.956 - INFO: img_097_SRF_4_HR     - PSNR: 51.974409 dB; SSIM: 0.999734; PSNR_Y: 60.004237 dB; SSIM_Y: 0.999760.
+23-07-14 20:46:15.046 - INFO: img_098_SRF_4_HR     - PSNR: 14.341239 dB; SSIM: 0.590562; PSNR_Y: 18.633857 dB; SSIM_Y: 0.519655.
+23-07-14 20:46:16.398 - INFO: img_099_SRF_4_HR     - PSNR: 19.183746 dB; SSIM: 0.858762; PSNR_Y: 22.288912 dB; SSIM_Y: 0.870172.
+23-07-14 20:46:18.119 - INFO: img_100_SRF_4_HR     - PSNR: 18.296037 dB; SSIM: 0.818004; PSNR_Y: 22.540406 dB; SSIM_Y: 0.785473.
+23-07-14 20:46:18.166 - INFO: ----Average PSNR/SSIM results for urban100----
+	PSNR: 23.376659 dB
+
+23-07-14 20:46:18.166 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 28.378327 dB; SSIM_Y: 0.856533
+
+23-07-14 20:46:18.167 - INFO: 
+Testing [set5]...
+23-07-14 20:46:18.680 - INFO: baby                 - PSNR: 24.648072 dB; SSIM: 0.970195; PSNR_Y: 27.771130 dB; SSIM_Y: 0.969062.
+23-07-14 20:46:18.833 - INFO: bird                 - PSNR: 19.108570 dB; SSIM: 0.852499; PSNR_Y: 31.942235 dB; SSIM_Y: 0.840936.
+23-07-14 20:46:18.905 - INFO: butterfly            - PSNR: 32.184772 dB; SSIM: 0.974555; PSNR_Y: 47.597383 dB; SSIM_Y: 0.986898.
+23-07-14 20:46:19.050 - INFO: head                 - PSNR: 51.044670 dB; SSIM: 0.999927; PSNR_Y: 52.222617 dB; SSIM_Y: 0.999871.
+23-07-14 20:46:19.135 - INFO: woman                - PSNR: 25.072838 dB; SSIM: 0.950233; PSNR_Y: 32.382261 dB; SSIM_Y: 0.948200.
+23-07-14 20:46:19.197 - INFO: ----Average PSNR/SSIM results for set5----
+	PSNR: 30.411784 dB
+
+23-07-14 20:46:19.197 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 38.383125 dB; SSIM_Y: 0.948993
+

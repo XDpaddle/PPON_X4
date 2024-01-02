@@ -1,0 +1,46 @@
+24-01-02 12:19:15.695 - INFO:   name: test_PPON_X4
+  model: sr
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: PPON
+    scale: 4
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: E:/datasets/Set5/HR
+      dataroot_LQ: E:/datasets/Set5/LR_bicubic/x4
+      phase: test1
+      scale: 4
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: E:\\github\\PPON_X4\\experiments\\PPON_x4\\models\\latest.pdparams
+    root: E:\github\PPON_X4
+    results_root: E:\github\PPON_X4\results\test_PPON_X4
+    log: E:\github\PPON_X4\results\test_PPON_X4
+  ]
+  is_train: False
+
+24-01-02 12:19:15.697 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+24-01-02 12:19:15.698 - INFO: Number of test images in [set5]: 5
+24-01-02 12:19:16.981 - INFO: Loading model for G [E:\\github\\PPON_X4\\experiments\\PPON_x4\\models\\latest.pdparams] ...
+24-01-02 12:19:17.374 - INFO: Model [SRModel] is created.
+24-01-02 12:19:17.374 - INFO: 
+Testing [set5]...
+24-01-02 12:19:20.075 - INFO: baby                 - PSNR: 4.564148 dB; SSIM: 0.570121; PSNR_Y: 17.491522 dB; SSIM_Y: 0.795711.
+24-01-02 12:19:20.730 - INFO: bird                 - PSNR: 4.128068 dB; SSIM: 0.424317; PSNR_Y: 14.935646 dB; SSIM_Y: 0.411994.
+24-01-02 12:19:21.370 - INFO: butterfly            - PSNR: 4.128931 dB; SSIM: 0.445824; PSNR_Y: 15.411246 dB; SSIM_Y: 0.510166.
+24-01-02 12:19:22.009 - INFO: head                 - PSNR: 3.959000 dB; SSIM: 0.478418; PSNR_Y: 14.734855 dB; SSIM_Y: 0.564626.
+24-01-02 12:19:22.606 - INFO: woman                - PSNR: 4.526052 dB; SSIM: 0.567521; PSNR_Y: 17.609332 dB; SSIM_Y: 0.783360.
+24-01-02 12:19:22.606 - INFO: ----Average PSNR/SSIM results for set5----
+	PSNR: 4.261240 dB
+
+24-01-02 12:19:22.606 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 16.036520 dB; SSIM_Y: 0.613171
+

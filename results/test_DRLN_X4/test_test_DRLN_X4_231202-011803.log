@@ -1,0 +1,1307 @@
+23-12-02 01:18:03.737 - INFO:   name: test_DRLN_X4
+  model: sr
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: DRLN
+    scale: 4
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: E:/datasets/Set5/HR
+      dataroot_LQ: E:/datasets/Set5/LR_bicubic/x4
+      phase: test1
+      scale: 4
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: trans_weights/trans_DRLN_x4.pdparams
+    root: C:\Users\wang\Documents\WeChat Files\wxid_nkjjx8lffmw822\FileStorage\File\2023-12\DSRNet_paddle\DSRNet_paddle
+    results_root: C:\Users\wang\Documents\WeChat Files\wxid_nkjjx8lffmw822\FileStorage\File\2023-12\DSRNet_paddle\DSRNet_paddle\results\test_DRLN_X4
+    log: C:\Users\wang\Documents\WeChat Files\wxid_nkjjx8lffmw822\FileStorage\File\2023-12\DSRNet_paddle\DSRNet_paddle\results\test_DRLN_X4
+  ]
+  is_train: False
+
+23-12-02 01:18:03.740 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-12-02 01:18:03.741 - INFO: Number of test images in [set5]: 5
+23-12-02 01:18:05.005 - INFO: Network G structure: DRLN, with parameters: 34,577,867
+23-12-02 01:18:05.005 - INFO: DRLN(
+  (sub_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (add_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (head): Conv2D(3, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  (b1): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b2): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b3): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b4): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b5): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b6): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b7): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b8): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b9): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b10): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b11): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b12): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b13): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b14): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b15): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b16): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b17): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b18): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b19): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (b20): Block(
+    (r1): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r2): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (r3): ResidualBlock(
+      (body): Sequential(
+        (0): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): ReLU()
+        (2): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      )
+    )
+    (g): BasicBlock(
+      (body): Sequential(
+        (0): Conv2D(512, 64, kernel_size=[1, 1], data_format=NCHW)
+        (1): ReLU()
+      )
+    )
+    (ca): CALayer(
+      (avg_pool): AdaptiveAvgPool2D(output_size=1)
+      (c1): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=3, dilation=[3, 3], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c2): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=5, dilation=[5, 5], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c3): BasicBlock(
+        (body): Sequential(
+          (0): Conv2D(64, 4, kernel_size=[3, 3], padding=7, dilation=[7, 7], data_format=NCHW)
+          (1): ReLU()
+        )
+      )
+      (c4): BasicBlockSig(
+        (body): Sequential(
+          (0): Conv2D(12, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (1): Sigmoid()
+        )
+      )
+    )
+  )
+  (c1): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(128, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c2): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(192, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c3): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(256, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c4): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(128, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c5): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(192, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c6): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(256, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c7): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(128, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c8): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(192, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c9): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(256, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c10): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(128, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c11): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(192, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c12): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(256, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c13): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(128, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c14): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(192, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c15): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(256, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c16): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(320, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c17): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(128, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c18): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(192, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c19): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(256, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (c20): BasicBlock(
+    (body): Sequential(
+      (0): Conv2D(320, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): ReLU()
+    )
+  )
+  (upsample): UpsampleBlock(
+    (up): _UpsampleBlock(
+      (body): Sequential(
+        (0): Conv2D(64, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (1): PixelShuffle(upscale_factor=2)
+        (2): Conv2D(64, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+        (3): PixelShuffle(upscale_factor=2)
+      )
+    )
+  )
+  (tail): Conv2D(64, 3, kernel_size=[3, 3], padding=1, data_format=NCHW)
+)
+23-12-02 01:18:05.015 - INFO: Loading model for G [trans_weights/trans_DRLN_x4.pdparams] ...
+23-12-02 01:18:05.386 - INFO: Model [SRModel] is created.
+23-12-02 01:18:05.387 - INFO: 
+Testing [set5]...
+23-12-02 01:18:07.703 - INFO: baby                 - PSNR: 17.635851 dB; SSIM: 0.849488; PSNR_Y: 23.244783 dB; SSIM_Y: 0.862999.
+23-12-02 01:18:08.028 - INFO: bird                 - PSNR: 7.376248 dB; SSIM: 0.558552; PSNR_Y: 17.286201 dB; SSIM_Y: 0.370613.
+23-12-02 01:18:08.308 - INFO: butterfly            - PSNR: 9.548288 dB; SSIM: 0.473805; PSNR_Y: 17.116952 dB; SSIM_Y: 0.343943.
+23-12-02 01:18:08.621 - INFO: head                 - PSNR: 13.038106 dB; SSIM: 0.643205; PSNR_Y: 18.177675 dB; SSIM_Y: 0.615045.
+23-12-02 01:18:08.872 - INFO: woman                - PSNR: 13.901255 dB; SSIM: 0.730261; PSNR_Y: 19.171888 dB; SSIM_Y: 0.686696.
+23-12-02 01:18:08.879 - INFO: ----Average PSNR/SSIM results for set5----
+	PSNR: 12.299950 dB
+
+23-12-02 01:18:08.879 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 18.999500 dB; SSIM_Y: 0.575859
+

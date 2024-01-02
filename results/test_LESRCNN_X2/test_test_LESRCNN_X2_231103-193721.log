@@ -1,0 +1,139 @@
+23-11-03 19:37:21.543 - INFO:   name: test_LESRCNN_X2
+  model: sr
+  distortion: sr
+  scale: 2
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: lesrcnn
+    scale: 2
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: /home/data/disk2/wsq/Datasets/benchmark/Set5/HR
+      dataroot_LQ: /home/data/disk2/wsq/Datasets/benchmark/Set5/LR_bicubic/X2
+      phase: test1
+      scale: 2
+      data_type: img
+    ]
+    test2:[
+      name: class3
+      mode: LQGT_rcan
+      dataroot_GT: /home/data/disk2/wsq/Datasets/benchmark/Set14/HR
+      dataroot_LQ: /home/data/disk2/wsq/Datasets/benchmark/Set14/LR_bicubic/X2
+      phase: test2
+      scale: 2
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: trans_weights/trans_over_b.pdparams
+    root: /home/data/disk2/wsq/code/sr_paddle-main
+    results_root: /home/data/disk2/wsq/code/sr_paddle-main/results/test_LESRCNN_X2
+    log: /home/data/disk2/wsq/code/sr_paddle-main/results/test_LESRCNN_X2
+  ]
+  is_train: False
+
+23-11-03 19:37:21.549 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-11-03 19:37:21.550 - INFO: Number of test images in [set5]: 5
+23-11-03 19:37:21.552 - INFO: Dataset [LQGTDataset_rcan - class3] is created.
+23-11-03 19:37:21.552 - INFO: Number of test images in [class3]: 12
+23-11-03 19:38:52.308 - INFO: Network G structure: Net, with parameters: 478,616
+23-11-03 19:38:52.308 - INFO: Net(
+  (sub_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (add_mean): MeanShift(
+    (shifter): Conv2D(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv1): Sequential(
+    (0): Conv2D(3, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (conv2): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv3): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv4): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv5): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv6): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv7): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv8): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv9): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv10): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv11): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv12): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv13): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv14): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv15): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv16): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[1, 1], data_format=NCHW)
+  )
+  (conv17_1): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_2): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_3): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv17_4): Sequential(
+    (0): Conv2D(64, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+  )
+  (conv18): Sequential(
+    (0): Conv2D(64, 3, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (ReLU): ReLU()
+  (upsample): UpsampleBlock(
+    (up): _UpsampleBlock(
+      (body): Sequential()
+    )
+  )
+)
+23-11-03 19:38:52.309 - INFO: Loading model for G [trans_weights/trans_over_b.pdparams] ...
+23-11-03 19:38:52.323 - INFO: Model [SRModel] is created.
+23-11-03 19:38:52.323 - INFO: 
+Testing [set5]...

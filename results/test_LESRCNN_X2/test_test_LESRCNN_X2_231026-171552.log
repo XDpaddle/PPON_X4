@@ -1,0 +1,29 @@
+23-10-26 17:15:52.649 - INFO:   name: test_LESRCNN_X2
+  model: sr
+  distortion: sr
+  scale: 2
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: lesrcnn
+    scale: 2
+  ]
+  datasets:[
+    test1:[
+      name: urban100
+      mode: LQGT_rcan
+      dataroot_GT: D:/Scripts/DIV2K/DIV2K_train_HR_sub
+      dataroot_LQ: D:/Scripts/DIV2K/DIV2K_train_LR_bicubic/X2_sub
+      phase: test1
+      scale: 2
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: trans_weights/trans_over_b.pdparams
+    root: /home/data/disk2/wsq/code/sr_paddle-main
+    results_root: /home/data/disk2/wsq/code/sr_paddle-main/results/test_LESRCNN_X2
+    log: /home/data/disk2/wsq/code/sr_paddle-main/results/test_LESRCNN_X2
+  ]
+  is_train: False
+

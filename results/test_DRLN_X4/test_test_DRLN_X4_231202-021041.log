@@ -1,0 +1,46 @@
+23-12-02 02:10:41.093 - INFO:   name: test_DRLN_X4
+  model: sr
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: DRLN
+    scale: 4
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: E:/datasets/Set5/HR
+      dataroot_LQ: E:/datasets/Set5/LR_bicubic/x4
+      phase: test1
+      scale: 4
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: trans_weights/trans_DRLN_x4.pdparams
+    root: C:\Users\wang\Documents\WeChat Files\wxid_nkjjx8lffmw822\FileStorage\File\2023-12\DSRNet_paddle\DSRNet_paddle
+    results_root: C:\Users\wang\Documents\WeChat Files\wxid_nkjjx8lffmw822\FileStorage\File\2023-12\DSRNet_paddle\DSRNet_paddle\results\test_DRLN_X4
+    log: C:\Users\wang\Documents\WeChat Files\wxid_nkjjx8lffmw822\FileStorage\File\2023-12\DSRNet_paddle\DSRNet_paddle\results\test_DRLN_X4
+  ]
+  is_train: False
+
+23-12-02 02:10:41.096 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-12-02 02:10:41.096 - INFO: Number of test images in [set5]: 5
+23-12-02 02:10:42.273 - INFO: Loading model for G [trans_weights/trans_DRLN_x4.pdparams] ...
+23-12-02 02:10:42.591 - INFO: Model [SRModel] is created.
+23-12-02 02:10:42.591 - INFO: 
+Testing [set5]...
+23-12-02 02:10:45.145 - INFO: baby                 - PSNR: 17.627707 dB; SSIM: 0.850354; PSNR_Y: 23.155550 dB; SSIM_Y: 0.864325.
+23-12-02 02:10:45.638 - INFO: bird                 - PSNR: 7.368926 dB; SSIM: 0.557425; PSNR_Y: 17.224883 dB; SSIM_Y: 0.370154.
+23-12-02 02:10:46.092 - INFO: butterfly            - PSNR: 9.585640 dB; SSIM: 0.473925; PSNR_Y: 17.165486 dB; SSIM_Y: 0.345128.
+23-12-02 02:10:46.565 - INFO: head                 - PSNR: 12.991175 dB; SSIM: 0.642090; PSNR_Y: 18.093191 dB; SSIM_Y: 0.614923.
+23-12-02 02:10:46.976 - INFO: woman                - PSNR: 13.901835 dB; SSIM: 0.730339; PSNR_Y: 19.171642 dB; SSIM_Y: 0.687435.
+23-12-02 02:10:46.980 - INFO: ----Average PSNR/SSIM results for set5----
+	PSNR: 12.295057 dB
+
+23-12-02 02:10:46.980 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 18.962150 dB; SSIM_Y: 0.576393
+

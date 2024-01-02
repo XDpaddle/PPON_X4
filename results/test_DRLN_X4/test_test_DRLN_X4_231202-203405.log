@@ -1,0 +1,46 @@
+23-12-02 20:34:05.480 - INFO:   name: test_DRLN_X4
+  model: sr
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: DRLN
+    scale: 4
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT_rcan
+      dataroot_GT: E:/datasets/Set5/HR
+      dataroot_LQ: E:/datasets/Set5/LR_bicubic/x4
+      phase: test1
+      scale: 4
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: trans_weights/trans_DRLN_x4.pdparams
+    root: E:\github\DRLN_x4
+    results_root: E:\github\DRLN_x4\results\test_DRLN_X4
+    log: E:\github\DRLN_x4\results\test_DRLN_X4
+  ]
+  is_train: False
+
+23-12-02 20:34:05.482 - INFO: Dataset [LQGTDataset_rcan - set5] is created.
+23-12-02 20:34:05.483 - INFO: Number of test images in [set5]: 5
+23-12-02 20:34:07.328 - INFO: Loading model for G [trans_weights/trans_DRLN_x4.pdparams] ...
+23-12-02 20:34:07.627 - INFO: Model [SRModel] is created.
+23-12-02 20:34:07.627 - INFO: 
+Testing [set5]...
+23-12-02 20:34:10.171 - INFO: baby                 - PSNR: 24.703771 dB; SSIM: 0.969399; PSNR_Y: 27.935072 dB; SSIM_Y: 0.968381.
+23-12-02 20:34:10.653 - INFO: bird                 - PSNR: 19.350641 dB; SSIM: 0.854347; PSNR_Y: 32.169622 dB; SSIM_Y: 0.846695.
+23-12-02 20:34:11.100 - INFO: butterfly            - PSNR: 32.168066 dB; SSIM: 0.974922; PSNR_Y: 47.580678 dB; SSIM_Y: 0.987155.
+23-12-02 20:34:11.579 - INFO: head                 - PSNR: 80.000000 dB; SSIM: 1.000000; PSNR_Y: 80.000000 dB; SSIM_Y: 1.000000.
+23-12-02 20:34:11.982 - INFO: woman                - PSNR: 25.407601 dB; SSIM: 0.953474; PSNR_Y: 32.682129 dB; SSIM_Y: 0.951469.
+23-12-02 20:34:11.987 - INFO: ----Average PSNR/SSIM results for set5----
+	PSNR: 36.326016 dB
+
+23-12-02 20:34:11.987 - INFO: ----Y channel, average PSNR/SSIM----
+	PSNR_Y: 44.073500 dB; SSIM_Y: 0.950740
+
